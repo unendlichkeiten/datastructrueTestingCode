@@ -33,7 +33,7 @@ bool IsEmptyLQueue(BTQueue *queue) {
 }// IsEmptyLQueue
 
 // 入队
-bool EnLQueue(BTQueue *queue, BiTNode btNode){
+bool EnLQueue(BTQueue *queue, struct BiTNode *btNode){
     if (!validQueue(queue)) {
         printf("invalid queue\n");
         return false;
@@ -50,7 +50,7 @@ bool EnLQueue(BTQueue *queue, BiTNode btNode){
 }// EnLQueue
 
 // 出队(特别注意只有一个节点的情况)
-bool DelQueue(BTQueue *queue, BiTNode *btNode){
+bool DelQueue(BTQueue *queue, struct BiTNode **btNode){
     if (queue == NULL) {
         return false;
     }
@@ -67,6 +67,6 @@ bool DelQueue(BTQueue *queue, BiTNode *btNode){
         queue->rear = queue->front;
     }
     free(DelNode);
-    
+
     return true;
 }// DelQueue

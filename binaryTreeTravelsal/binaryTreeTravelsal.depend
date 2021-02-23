@@ -1,0 +1,26 @@
+# depslib dependency file v1.0
+1614097586 source:e:\hamming\datastructureandalgrithme\algrithm\binarytreetravelsal\main.c
+	"binaryTreeTravelsal.h"
+
+1614092409 e:\hamming\datastructureandalgrithme\algrithm\binarytreetravelsal\binarytreetravelsal.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"./stack/BTStack.h"
+	"./queue/BTQueue.h"
+
+1614092348 e:\hamming\datastructureandalgrithme\algrithm\binarytreetravelsal\stack\btstack.h
+	"../binaryTreeTravelsal.h"
+
+1614092373 e:\hamming\datastructureandalgrithme\algrithm\binarytreetravelsal\queue\btqueue.h
+	"../binaryTreeTravelsal.h"
+
+1614092460 source:e:\hamming\datastructureandalgrithme\algrithm\binarytreetravelsal\queue\btqueue.c
+	"BTQueue.h"
+
+1614095604 source:e:\hamming\datastructureandalgrithme\algrithm\binarytreetravelsal\stack\btstack.c
+	"BTStack.h"
+
+1614097586 source:e:\hamming\datastructureandalgrithme\algrithm\binarytreetravelsal\binarytreetravelsal.c
+	"binaryTreeTravelsal.h"
+

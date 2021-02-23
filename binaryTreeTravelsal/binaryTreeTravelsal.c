@@ -5,8 +5,8 @@
 #define RIGHT 1
 
 // 访问节点
-void Visit(BiTNode btNode) {
-    printf("btNode value is: %d", btNode->data);
+void Visit(struct BiTNode *btNode) {
+    printf("btNode value is: %d\n", btNode->data);
 }// Visit
 
 // 构造二叉树
@@ -22,6 +22,7 @@ BiTree createBiTree(){
   }
 
   // 创建根节点
+  printf("please input rootNode value : ");
   scanf("%d", &data);
   if (data == NONE) {
     return NULL;
@@ -40,41 +41,41 @@ BiTree createBiTree(){
   }
 
   while(!IsEmptyLQueue(&queue)) {
-    if (!DelQueue(&queue, &t)) {
-      printf("delQueue failed.\n");
+  if (!DelQueue(&queue, &t)) {
+    printf("delQueue failed.\n");
+    continue;
+  }
+
+  // 插入左子节点
+  printf("please input subNode value : ");
+  scanf("%d", &data);
+  if (data == NONE) {
+    t->lchild = NULL;
+  } else {
+    t->lchild = (struct BiTNode *)malloc(sizeof(struct BiTNode));
+    t->lchild->data = data;
+    t->lchild->lchild = t->lchild->rchild = NULL;
+    if (!EnLQueue(&queue, t->lchild)) {
+      printf("enqueue lchild failed.\n");
       continue;
     }
+  }
 
-    // 插入左子节点
-    scanf("%d", &data);
-    if (data == NONE) {
-      t->lchild = NULL;
-    } else {
-      t->lchild = (BiTNode)malloc(sizeof(struct BiTNode));
-      t->lchild->data = data;
-      t->lchild->lchild = t->lchild->rchild = NULL;
-      if (!EnLQueue(&queue, t->lchild)) {
-        printf("enqueue lchild failed.\n");
-        continue;
-      }
-      EnLQueue(&queue, t);
-    }
-
-    //插入右子节点
-    scanf("%d", &data);
-    if (data == NONE) {
-      t->rchild = NULL;
-    } else {
-      t->rchild = (BiTNode)malloc(sizeof(struct BiTNode));
-      t->rchild->data = data;
-      t->rchild->lchild = t->rchild->rchild = NULL;
-      if (!EnLQueue(&queue, t->rchild)) {
-        printf("enqueue rchild failed.\n");
-        continue;
-      }
-      EnLQueue(&queue, t);
+  //插入右子节点
+  printf("please input subNode value : ");
+  scanf("%d", &data);
+  if (data == NONE) {
+    t->rchild = NULL;
+  } else {
+    t->rchild = (struct BiTNode *)malloc(sizeof(struct BiTNode));
+    t->rchild->data = data;
+    t->rchild->lchild = t->rchild->rchild = NULL;
+    if (!EnLQueue(&queue, t->rchild)) {
+      printf("enqueue rchild failed.\n");
+      continue;
     }
   }
+}
 
   return bt;
 }// createBiTree
@@ -84,14 +85,14 @@ void PreOrder(BiTree bt){
   BTStack btStack = CreateBTStack();
   InitStack(btStack);
 
-  BiTNode btNode = bt;
-  while (btNode || IsEmptyStack(btStack)) {
+  struct BiTNode *btNode = bt;
+  while (btNode || !IsEmptyStack(btStack)) {
     if (btNode) {
       Visit(btNode);
       Push2Stack(btStack, btNode);
       btNode = btNode->lchild;
     } else {
-      btNode = Pop4Stack(btStack, btNode);
+      Pop4Stack(btStack, &btNode);
       btNode = btNode->rchild;
     }
   }
@@ -102,13 +103,13 @@ void InOrder(BiTree bt){
   BTStack btStack = CreateBTStack();
   InitStack(btStack);
 
-  BiTNode btNode = bt;
-  while (btNode || IsEmptyStack(btStack)) {
+  struct BiTNode *btNode = bt;
+  while (btNode || !IsEmptyStack(btStack)) {
     if (btNode) {
       Push2Stack(btStack, btNode);
       btNode = btNode->lchild;
     } else {
-      btNode = Pop4Stack(btStack, btNode);
+      Pop4Stack(btStack, &btNode);
       Visit(btNode);
       btNode = btNode->rchild;
     }
@@ -120,15 +121,15 @@ void PostOrder(BiTree bt){
   BTStack btStack = CreateBTStack();
   InitStack(btStack);
 
-  BiTNode btNode = bt, pre = NULL;
-  while (btNode || IsEmptyStack(btStack)) {
+  struct BiTNode *btNode = bt, *pre = NULL;
+  while (btNode || !IsEmptyStack(btStack)) {
     if (btNode) {
       Push2Stack(btStack, btNode);
       btNode = btNode->lchild;
     } else {
-      btNode = GetTopElem(btStack, btNode);
+      GetTopElem(btStack, &btNode);
       if (!btNode->rchild || btNode->rchild == pre) {
-        Pop4Stack(btStack, btNode);
+        Pop4Stack(btStack, &btNode);
         Visit(btNode);
         pre = btNode;
         btNode = NULL;
@@ -143,7 +144,7 @@ void PostOrder(BiTree bt){
 
 // 层序遍历
 void LevelOrder(BiTree bt){
-  BiTNode root = bt, btNode = NULL;
+  struct BiTNode *root = bt, *btNode = NULL;
   BTQueue queue;
   InitLQueue(&queue);
 
@@ -152,7 +153,7 @@ void LevelOrder(BiTree bt){
   }
   EnLQueue(&queue, root);
 
-  while (IsEmptyLQueue(&queue)) {
+  while (!IsEmptyLQueue(&queue)) {
     DelQueue(&queue, &btNode);
     Visit(btNode);
     if (btNode->lchild) {

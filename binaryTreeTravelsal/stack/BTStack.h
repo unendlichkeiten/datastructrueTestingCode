@@ -4,7 +4,7 @@
 #include "../binaryTreeTravelsal.h"
 
 typedef struct BTStackNode{
-    BiTNode data;
+    struct BiTNode *data;
     struct BTStackNode *next;
 } BTStackNode, *BTStack;
 
@@ -17,10 +17,10 @@ bool InitStack(BTStack stack);
 // ÅÐ¿Õ
 bool IsEmptyStack(BTStack stack);
 // ÈëÕ»
-bool Push2Stack(BTStack stack, BiTNode btNode);
+bool Push2Stack(BTStack stack, struct BiTNode *btNode);
 // ³öÕ»
-bool Pop4Stack(BTStack stack, BiTNode *btNode);
+bool Pop4Stack(BTStack stack, struct BiTNode **btNode);
 // È¡Õ»¶¥ÔªËØ
-bool GetTopElem(BTStack stack, BiTNode *btNode);
+bool GetTopElem(BTStack stack, struct BiTNode **btNode);
 
 #endif // BTSTACK_H_INCLUDED

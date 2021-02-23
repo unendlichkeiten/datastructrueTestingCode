@@ -31,7 +31,7 @@ bool IsEmptyStack(BTStack stack) {
 }// IsEmptyStack
 
 // 入栈
-bool Push2Stack(BTStack stack, BiTNode btNode) {
+bool Push2Stack(BTStack stack, struct BiTNode *btNode) {
   if (!validStack(stack)){
     printf("stack invalid\n");
     return false;
@@ -39,7 +39,7 @@ bool Push2Stack(BTStack stack, BiTNode btNode) {
 
   // 栈内元素初始化
   BTStackNode *stackNode = NULL;
-  if (stackNode = (BTStackNode*)malloc(sizeof(BTStackNode))) {
+  if (!(stackNode = (BTStackNode*)malloc(sizeof(BTStackNode)))) {
     return false;
   }
   stackNode->data = btNode;
@@ -53,7 +53,7 @@ bool Push2Stack(BTStack stack, BiTNode btNode) {
 }// Push2Stack
 
 // 出栈
-bool Pop4Stack(BTStack stack, BiTNode *btNode) {
+bool Pop4Stack(BTStack stack, struct BiTNode **btNode) {
   if (!validStack(stack) || IsEmptyStack(stack)){
     printf("stack invalid\n");
     return false;
@@ -68,7 +68,7 @@ bool Pop4Stack(BTStack stack, BiTNode *btNode) {
 }// Pop4Stack
 
 // 取栈顶元素
-bool GetTopElem(BTStack stack, BiTNode *btNode) {
+bool GetTopElem(BTStack stack, struct BiTNode **btNode) {
   if (!validStack(stack) || IsEmptyStack(stack)){
     printf("stack invalid\n");
     return false;

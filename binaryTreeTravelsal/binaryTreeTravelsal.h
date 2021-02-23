@@ -10,17 +10,17 @@
 
 typedef int TElemType;
 typedef struct BiTNode  *BiTree;
-typedef struct BiTNode  *BiTNode;
-struct BiTNode{
+// typedef struct BiTNode  *BiTNode;
+typedef struct BiTNode{
     TElemType data;  // 节点值
-    BiTNode lchild;  // 左子树
-    BiTNode rchild;  // 右子树
+    struct BiTNode *lchild;  // 左子树
+    struct BiTNode *rchild;  // 右子树
 };
 
 // 访问节点
-void Visit(BiTNode btNode);
+void Visit(struct BiTNode *btNode);
 // 构造二叉树
-BiTree createBiTree();
+BiTree createBiTree( );
 // 前序遍历
 void PreOrder(BiTree bt);
 // 中序遍历

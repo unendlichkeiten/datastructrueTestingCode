@@ -4,7 +4,7 @@
 #include "../binaryTreeTravelsal.h"
 
 typedef struct BTQueueNode{
-    BiTNode data;
+    struct BiTNode *data;
     struct BTQueueNode *next;
 } BTQueueNode, *Position;
 
@@ -20,8 +20,8 @@ bool InitLQueue(BTQueue *queue);
 // 判空队列
 bool IsEmptyLQueue(BTQueue *queue);
 // 入队
-bool EnLQueue(BTQueue *queue, BiTNode btNode);
+bool EnLQueue(BTQueue *queue, struct BiTNode *btNode);
 // 出队
-bool DelQueue(BTQueue *queue, BiTNode *btNode);
+bool DelQueue(BTQueue *queue, struct BiTNode **btNode);
 
 #endif // BTQUEUE_H_INCLUDED
