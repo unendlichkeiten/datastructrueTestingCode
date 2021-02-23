@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1612250315 source:e:\hamming\datastructureandalgrithme\algrithm\lineartableapp\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1612689396 source:e:\hamming\datastructureandalgrithme\algrithm\stacklist\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+

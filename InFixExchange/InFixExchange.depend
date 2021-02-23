@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1612874516 source:e:\hamming\datastructureandalgrithme\algrithm\infixexchange\stack.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<ctype.h>
+
+1612883956 source:e:\hamming\datastructureandalgrithme\algrithm\infixexchange\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<ctype.h>
+	<string.h>
+
+1612874516 e:\hamming\datastructureandalgrithme\algrithm\infixexchange\stack.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<ctype.h>
+
+1612874575 source:e:\hamming\datastructureandalgrithme\algrithm\infixexchange\stack.c
+	"stack.h"
+

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1613790535 source:e:\hamming\datastructureandalgrithme\algrithm\sqqueue\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+
