@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1617755937 source:e:\hamming\datastructureandalgrithme\algrithm\avltree\main.c
+	"avlTree.h"
+
+1617724597 e:\hamming\datastructureandalgrithme\algrithm\avltree\avltree.h
+	<stdio.h>
+
+1617724642 source:e:\hamming\datastructureandalgrithme\algrithm\avltree\avltree.c
+	"avlTree.h"
+
